@@ -1,0 +1,44 @@
+{
+    "manifest_version": 2,
+    "name": "hanzi2pinyin",
+    "version": "1.0",
+    "applications": {
+        "gecko": {
+            "id": "rafa@twitter.com"
+        }
+    },
+    "background": {
+        "scripts": [
+            "background/background.js"
+        ]
+    },
+    "icons": {
+        "48": "icons/icon48.png"
+    },
+    "permissions": [
+        "<all_urls>",
+        "activeTab",
+        "contextMenus",
+        "scripting"
+    ],
+    "browser_action": {
+        "default_icon": "icons/icon48.png",
+        "default_title": "hanzi2pinyin",
+        "default_popup": "popup/popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*/*"
+            ],
+            "js": [
+                "content/content.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        "resources/pinyin.txt",
+        "tooltip/tooltip.html",
+        "tooltip/tooltip.css"
+    ]
+}
